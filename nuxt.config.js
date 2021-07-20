@@ -12,8 +12,8 @@ export default {
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: '@LamaCodeur'
-      }
+        content: '@LamaCodeur',
+      },
     ],
     htmlAttrs: {
       lang: 'fr',
@@ -41,13 +41,16 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/dayjs', 'nuxt-i18n', '@nuxtjs/svg'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/dayjs', 'nuxt-i18n', '@nuxtjs/svg'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // analyze: true, // Launches webpack analyze and opens it on nuxt generate
     transpile: ['lodash-es'],
   },
+
+  // Axios configuration: https://axios.nuxtjs.org
+  axios: {},
 
   // DayJS configuration: https://github.com/nuxt-community/dayjs-module
   dayjs: {

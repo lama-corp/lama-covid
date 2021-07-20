@@ -12,10 +12,12 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dayjs": "^1.4.0",
-    "chart.js": "^3.4.1",
+    "chart.js": "^2.9.4",
     "core-js": "^3.15.1",
     "lodash-es": "^4.17.21",
+    "moment": "^2.29.1",
     "nuxt": "^2.15.7",
     "nuxt-i18n": "^6.27.3",
     "vue-chartjs": "^3.5.1",
