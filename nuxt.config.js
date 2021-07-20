@@ -9,6 +9,11 @@ export default {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1',
       },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@LamaCodeur'
+      }
     ],
     htmlAttrs: {
       lang: 'fr',
@@ -36,11 +41,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/dayjs', '@nuxtjs/svg'],
+  modules: ['@nuxtjs/dayjs', 'nuxt-i18n', '@nuxtjs/svg'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    analyze: true,
+    // analyze: true, // Launches webpack analyze and opens it on nuxt generate
     transpile: ['lodash-es'],
   },
 
@@ -49,5 +54,21 @@ export default {
     locales: ['fr'],
     defaultLocale: 'fr',
     plugins: [],
+  },
+
+  // I18n configuration: https://i18n.nuxtjs.org
+  i18n: {
+    locales: [
+      {
+        code: 'fr',
+        iso: 'fr-FR',
+        file: 'fr.json',
+      },
+    ],
+    defaultLocale: 'fr',
+    langDir: '~/locales',
+    seo: false, // Mandatory as defined in templates for performance
+    // https://i18n.nuxtjs.org/seo/#improving-performance
+    baseUrl: 'https://www.covid-prochaine-vague.fr',
   },
 }

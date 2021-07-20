@@ -101,5 +101,9 @@ export default {
   components: {
     IconVirus,
   },
+  // Please refer to ~/layouts/README.md to understand the following required lines for SEO
+  head() {
+    return this.$nuxtI18nHead({ addSeoAttributes: true })
+  },
 }
 </script>

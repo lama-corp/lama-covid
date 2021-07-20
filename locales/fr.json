@@ -1,0 +1,16 @@
+{
+  "components": {},
+  "pages": {
+    "index": {
+      "title": "Prévision de la prochaine vague de la Covid-19",
+      "socialShare": {
+        "title": "Covid: Prévisions prochaine vague",
+        "description": "Courbes et analyses du nombre de cas de Covid-19 en France au cours des prochaines semaines."
+      },
+      "head": {
+        "title": "Covid Prochaine Vague - prédire analyser comprendre",
+        "description": "Covid prochaine vague : comprendre le propagation du Covid-19 au sein de la population française"
+      }
+    }
+  }
+}
