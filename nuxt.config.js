@@ -36,13 +36,18 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/svg'],
+  modules: ['@nuxtjs/dayjs', '@nuxtjs/svg'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     analyze: true,
-    transpile: [
-      'lodash-es'
-    ],
+    transpile: ['lodash-es'],
+  },
+
+  // DayJS configuration: https://github.com/nuxt-community/dayjs-module
+  dayjs: {
+    locales: ['fr'],
+    defaultLocale: 'fr',
+    plugins: [],
   },
 }
