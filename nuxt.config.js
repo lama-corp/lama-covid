@@ -1,4 +1,5 @@
 export default {
+  target: 'static',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Covid Prochaine Vague',
@@ -19,7 +20,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/vue-lodash'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -38,5 +39,10 @@ export default {
   modules: ['@nuxtjs/svg'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    analyze: true,
+    transpile: [
+      'lodash-es'
+    ],
+  },
 }

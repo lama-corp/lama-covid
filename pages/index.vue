@@ -28,7 +28,8 @@ export default {
     return {
       seo: {
         title: 'Covid: Prévisions prochaine vague',
-        description: 'Courbes et analyses du nombre de cas de Covid-19 en France au cours des prochaines semaines.',
+        description:
+          'Courbes et analyses du nombre de cas de Covid-19 en France au cours des prochaines semaines.',
         imageUrl: '',
       },
     }
