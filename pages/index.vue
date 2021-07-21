@@ -15,25 +15,11 @@
         <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
           <div class="relative min-h-screen bg-gray-100 p-5">
             <h1 class="text-3xl font-bold leading-tight text-gray-900">
-              Ceci est un test
+              Labels
             </h1>
-            <LineChart
-              :data="{
-                labels: ['Janv', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juill'],
-                datasets: [
-                  {
-                    label: 'My First DS',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    fill: false,
-                    borderColor: 'rgb(75, 192, 192)',
-                    tension: 0.1,
-                  },
-                ],
-              }"
-              :options="{
-                type: 'line',
-              }"
-            />
+            {{ labels }}
+            {{ dataFirstInj }}
+            <LineChart :data="data" :options="options" />
           </div>
         </div>
       </div>
@@ -65,11 +51,85 @@ export default {
     }
   },
   data() {
+    const covidTrackerData = require('~/ressources/covidTrackerData.json')
+
+    const dataFirstInjections = covidTrackerData.n_dose1.map((val, idx) => ({
+      x: covidTrackerData.dates[idx],
+      y: parseInt(val),
+    }))
+
+    const maxY = Math.max.apply(null, covidTrackerData.n_dose1)
+    const maxValue = Math.round( (maxY+ 100000) / 100000) * 100000
+
     return {
       socialShare: {
         title: this.$t('pages.index.socialShare.title'),
         description: this.$t('pages.index.socialShare.description'),
         imageUrl: '',
+      },
+      covidTrackerData,
+      labels: covidTrackerData.dates,
+      dataFirstInj: dataFirstInjections,
+      data: {
+        labels: covidTrackerData.dates,
+        datasets: [
+          {
+            label: 'Nombre de premières doses ',
+            data: dataFirstInjections,
+            type: 'line',
+            fill: false,
+            borderColor: '#1796e6', // Line color
+            pointBorderColor: '#1796e6', // Point color
+            hidden: false, // Hide line
+            pointRadius: 1, // Avoid displaying points
+            yAxisID: 'moyennes',
+          },
+        ],
+      },
+      options: {
+        aspectRatio: 1,
+        maintainAspectRatio: false,
+        legend: {
+          display: true,
+        },
+        scales: {
+          yAxes: [
+            {
+              id: 'moyennes',
+              stacked: false,
+              display: true,
+              gridLines: {
+                display: true
+              },
+              ticks: {
+                max: maxValue,
+                min: 0,
+                callback(value) {
+                  return value / 1000 + ' k'
+                },
+              },
+            },
+          ],
+          xAxes: [
+            {
+              // offset: true,
+              stacked: true,
+              type: 'time',
+              distribution: 'linear',
+              gridLines: {
+                display: false,
+              },
+              time: {
+                min: moment('2021-01-01'),
+                max: moment(),
+              },
+            },
+          ],
+        },
+        annotation: {
+          events: ['click'],
+          annotations: [],
+        },
       },
     }
   },
