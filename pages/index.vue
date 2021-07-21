@@ -17,10 +17,6 @@
             <h1 class="text-3xl font-bold leading-tight text-gray-900">
               Ceci est un test
             </h1>
-            <BarChart
-              :data="barChartData"
-              :options="{ maintainAspectRatio: false }"
-            />
             <LineChart
               :data="{
                 labels: ['Janv', 'Fev', 'Mars', 'Avr', 'Mai', 'Juin', 'Juill'],
