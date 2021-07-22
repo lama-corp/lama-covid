@@ -17,8 +17,6 @@
             <h1 class="text-3xl font-bold leading-tight text-gray-900">
               Labels
             </h1>
-            {{ labels }}
-            {{ dataFirstInj }}
             <LineChart :data="data" :options="options" />
           </div>
         </div>
@@ -28,38 +26,56 @@
 </template>
 
 <script>
-import moment from 'moment'
+import { CHART_NB_DAILY_CASES } from '~/constants'
 
 export default {
-  async asyncData({ $axios }) {
-    const stats = await $axios.$get(
-      'https://api.github.com/repos/nuxt/nuxt.js/stats/commit_activity'
-    )
-    return {
-      barChartData: {
-        labels: stats.map((stat) =>
-          moment(stat.week * 1000).format('GGGG[-W]WW')
-        ),
-        datasets: [
-          {
-            label: 'Nuxt Commit Activity',
-            backgroundColor: '#41B38A',
-            data: stats.map((stat) => stat.total),
-          },
-        ],
-      },
-    }
-  },
   data() {
     const covidTrackerData = require('~/ressources/covidTrackerData.json')
 
-    const dataFirstInjections = covidTrackerData.n_dose1.map((val, idx) => ({
-      x: covidTrackerData.dates[idx],
-      y: parseInt(val),
-    }))
+    const nbDays = this.$dayjs(covidTrackerData.meta.dateEnd).diff(
+      covidTrackerData.meta.dateStart,
+      'day'
+    )
 
-    const maxY = Math.max.apply(null, covidTrackerData.n_dose1)
-    const maxValue = Math.round( (maxY+ 100000) / 100000) * 100000
+    const _this = this
+    const dates = Array(nbDays + 1)
+      .fill()
+      .map((_, i) =>
+        _this
+          .$dayjs(covidTrackerData.meta.dateEnd)
+          .subtract(i, 'day')
+          .format('YYYY-MM-DD')
+      )
+      .sort()
+
+    // Récupérer les Rt
+    CHART_NB_DAILY_CASES.forEach((dataset) => {
+      console.log('---------------------')
+      console.log(dataset.name)
+      console.log(this.getWeekRt(covidTrackerData.data[dataset.name]))
+      console.log(this.getPrevWeekRt(covidTrackerData.data[dataset.name]))
+      console.log(this.getPrevWeekRt(covidTrackerData.data[dataset.name], 2))
+      console.log(this.getPrevWeekRt(covidTrackerData.data[dataset.name], 3))
+      console.log('---------------------')
+    })
+
+    const datasets = CHART_NB_DAILY_CASES.map((dataset) => {
+      return {
+        label: this.$t(`charts.${dataset.name}`),
+        data: covidTrackerData.data[dataset.name].map((val, idx) => ({
+          x: dates[idx],
+          y: parseInt(val),
+        })),
+        type: 'line',
+        fill: false,
+        borderColor: dataset.color, // Line color
+        pointBorderColor: dataset.color, // Point color
+        hidden: false, // Hide line
+        pointRadius: 1, // Avoid displaying points
+        pointHitRadius: 5,
+        yAxisID: 'moyennes',
+      }
+    })
 
     return {
       socialShare: {
@@ -68,27 +84,14 @@ export default {
         imageUrl: '',
       },
       covidTrackerData,
-      labels: covidTrackerData.dates,
-      dataFirstInj: dataFirstInjections,
+      labels: dates,
       data: {
-        labels: covidTrackerData.dates,
-        datasets: [
-          {
-            label: 'Nombre de premières doses ',
-            data: dataFirstInjections,
-            type: 'line',
-            fill: false,
-            borderColor: '#1796e6', // Line color
-            pointBorderColor: '#1796e6', // Point color
-            hidden: false, // Hide line
-            pointRadius: 1, // Avoid displaying points
-            yAxisID: 'moyennes',
-          },
-        ],
+        labels: dates,
+        datasets,
       },
       options: {
         aspectRatio: 1,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true,
         legend: {
           display: true,
         },
@@ -99,14 +102,7 @@ export default {
               stacked: false,
               display: true,
               gridLines: {
-                display: true
-              },
-              ticks: {
-                max: maxValue,
-                min: 0,
-                callback(value) {
-                  return value / 1000 + ' k'
-                },
+                display: true,
               },
             },
           ],
@@ -120,8 +116,8 @@ export default {
                 display: false,
               },
               time: {
-                min: moment('2021-01-01'),
-                max: moment(),
+                min: covidTrackerData.meta.dateStart,
+                max: covidTrackerData.meta.dateEnd,
               },
             },
           ],
@@ -144,6 +140,25 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    getWeekRt(values) {
+      const reducer = (accumulator, currentValue) => accumulator + currentValue
+      const duplicated = this.$lodash.merge([], values)
+
+      return (
+        duplicated.splice(-7, 7).reduce(reducer) /
+        duplicated.splice(-7, 7).reduce(reducer)
+      )
+    },
+    getPrevWeekRt(values, nb = 1) {
+      const duplicated = this.$lodash.merge([], values)
+      for (let i = 0; i < nb; i++) {
+        duplicated.splice(-7, 7)
+      }
+
+      return this.getWeekRt(duplicated)
+    },
   },
 }
 </script>

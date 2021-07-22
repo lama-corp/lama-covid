@@ -6,6 +6,7 @@ export default {
   props: ['data', 'options'],
   mounted() {
     this.renderChart(this.data, this.options)
+    this.$emit('test', 'value')
   },
 }
 </script>
