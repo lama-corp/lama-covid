@@ -74,6 +74,9 @@ export const CHARTS_DEFAULT_OPTIONS_AXES_Y = {
   gridLines: {
     display: true,
   },
+  ticks: {
+    suggestedMin: 0, // minimum will be 0, unless there is a lower value
+  },
 }
 
 export const CHARTS_DEFAULT_DATASET_LINE = {
@@ -88,3 +91,6 @@ export const CHARTS_DEFAULT_DATASET_LINE = {
   pointHitRadius: 3,
   yAxisID: 'moyennes',
 }
+
+export const DEFAULT_NB_DAYS_TO_ANALYZE = 35
+export const OLD_AGE_RANGES = ['60-69', '70-79', '80-89', '90+']
