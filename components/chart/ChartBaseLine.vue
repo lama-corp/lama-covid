@@ -1,10 +1,12 @@
 <script>
-import { Bar } from 'vue-chartjs'
+import { Line } from 'vue-chartjs'
 
 export default {
-  extends: Bar,
+  name: 'ChartBaseLine',
+  extends: Line,
   props: ['data', 'options'],
   mounted() {
+    console.log('IN0')
     this.renderChart(this.data, this.options)
   },
 }

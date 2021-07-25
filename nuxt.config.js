@@ -21,6 +21,12 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  // Usage: https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL
+  },
+  privateRuntimeConfig: {},
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
