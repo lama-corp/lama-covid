@@ -66,7 +66,6 @@ export default {
     this.rtsByAge.data.labels = dates
 
     // const datasets = this.getPositivesByAgeDatasets(dailyPositivesResp.data)
-    console.log('dailyHospitalizationsData', dailyHospitalizationsData)
     const datasets = this.getPositivesByAgeDatasets(dailyHospitalizationsData)
     this.rtsByAge.data.datasets = this.generateChartsDatasetsByAge(
       datasets,

@@ -62,7 +62,6 @@ export default {
       }
       return newValue / 7
     })
-    console.log(dailyPositivesData)
 
     const dates = this.getDatesFromStartToEnd(
       hospitalizationsResp.meta.dateStart,
