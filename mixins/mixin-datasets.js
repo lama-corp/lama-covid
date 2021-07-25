@@ -23,14 +23,11 @@ export default {
     getNewAdmissionsReaDataset(newAdmissionsReaData, nbDaysAnalyze) {
       const sourceData = this.$lodash.merge([], newAdmissionsReaData)
 
-      console.log('loool', sourceData)
-
       const Rts = []
       for (let i = 0; i < nbDaysAnalyze; i++) {
         Rts.push(this.getWeekRt(sourceData))
         sourceData.pop()
       }
-      console.log('Rts', Rts)
 
       return Rts
     }

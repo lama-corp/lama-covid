@@ -45,7 +45,6 @@ export default {
     const RtsAdmissions = []
     const RtsAdmissionsDelayed = []
     for (let i = 0; i < nbDaysAnalyze; i++) {
-      console.log(i)
       // Positives 70-79
       RtsPositives.push({
         date: dates[dates.length - 1 - i],
@@ -89,7 +88,6 @@ export default {
       })
       dailyNewAdmissionsReaData2.splice(-1, 1)
     }
-    console.log(RtsPositives, RtsHospitalizations, RtsAdmissions)
 
     const datasets = [
       {
@@ -244,7 +242,6 @@ export default {
       // Ideally, this should be done not for seven days rows, but 3 or 4 days (if it accelerate => days off impact?)
       const reducer = (accumulator, currentValue) => accumulator + currentValue
       const duplicated = this.$lodash.merge([], values)
-      console.log(duplicated)
 
       return (
         duplicated.splice(-7, 7).reduce(reducer) /

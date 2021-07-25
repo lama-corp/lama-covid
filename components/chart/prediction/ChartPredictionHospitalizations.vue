@@ -1,6 +1,10 @@
 <template>
   <div>
-    <ChartBaseLine :data="chart.data" :options="chart.options" />
+    <ChartBaseLine
+      :data="chart.data"
+      :options="chart.options"
+      :update-chart="updateChart"
+    />
   </div>
 </template>
 
@@ -21,6 +25,7 @@ export default {
   mixins: [mixinCharts, mixinData, mixinDatasets, mixinDates],
   data() {
     return {
+      updateChart: 0,
       chart: {
         data: {
           labels: [], // dates,
@@ -115,9 +120,17 @@ export default {
       ]
 
       this.chart.options.scales.xAxes[0].time = {
-        min: datesPrevisions[datesPrevisions.length - DEFAULT_NB_DAYS_TO_ANALYZE],
+        min: datesPrevisions[
+          datesPrevisions.length - DEFAULT_NB_DAYS_TO_ANALYZE
+        ],
         max: datesPrevisions[datesPrevisions.length - 1],
       }
+
+      // Force update
+      const _this = this
+      setTimeout(() => {
+        _this.updateChart++
+      }, 1000)
     },
   },
 }
