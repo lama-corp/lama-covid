@@ -40,10 +40,10 @@
 import {
   CHARTS_DEFAULT_OPTIONS_AXES_TIME,
   CHARTS_DEFAULT_OPTIONS_AXES_Y,
-} from '~/constants'
-import mixinCharts from '~/mixins/mixin-charts'
-import mixinDatasets from '~/mixins/mixin-datasets'
-import mixinDates from '~/mixins/mixin-dates'
+} from '@/constants'
+import mixinCharts from '@/mixins/mixin-charts'
+import mixinDatasets from '@/mixins/mixin-datasets'
+import mixinDates from '@/mixins/mixin-dates'
 
 export default {
   name: 'PageMethodologie',
@@ -70,7 +70,7 @@ export default {
     }
   },
   mounted() {
-    const dailyPositivesResp = require('~/ressources/dailyPositives.json')
+    const dailyPositivesResp = require('@/ressources/dailyPositives.json')
 
     // const dates = this.getDatesFromStartToEnd(
     //   dailyPositivesResp.meta.dateStart,

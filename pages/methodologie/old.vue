@@ -8,14 +8,14 @@
 export default {
   name: 'PageMethodologie',
   data() {
-    const dailyPositivesResp = require('~/ressources/dailyPositives.json')
+    const dailyPositivesResp = require('@/ressources/dailyPositives.json')
     const dailyPositivesData = dailyPositivesResp.data['70-79']
     const dailyPositivesData20 = dailyPositivesResp.data['20-29']
     const dailyPositivesAllData = dailyPositivesResp.data.all
-    const hospitalizationsResp = require('~/ressources/hospitalizations.json')
+    const hospitalizationsResp = require('@/ressources/hospitalizations.json')
     const hospitalizationsData = hospitalizationsResp.data['70-79']
     const dailyNewAdmissionsReaData =
-      require('~/ressources/dailyNewAdmissionsRea.json').data
+      require('@/ressources/dailyNewAdmissionsRea.json').data
     const dailyNewAdmissionsReaData2 = this.$lodash.merge(
       [],
       dailyNewAdmissionsReaData

@@ -40,10 +40,10 @@
 import {
   CHARTS_DEFAULT_OPTIONS_AXES_TIME,
   CHARTS_DEFAULT_OPTIONS_AXES_Y,
-} from '~/constants'
-import mixinCharts from '~/mixins/mixin-charts'
-import mixinDatasets from '~/mixins/mixin-datasets'
-import mixinDates from '~/mixins/mixin-dates'
+} from '@/constants'
+import mixinCharts from '@/mixins/mixin-charts'
+import mixinDatasets from '@/mixins/mixin-datasets'
+import mixinDates from '@/mixins/mixin-dates'
 
 export default {
   name: 'PageMethodologie',
@@ -70,8 +70,8 @@ export default {
     }
   },
   mounted() {
-    const dailyPositivesResp = require('~/ressources/dailyPositives.json')
-    const dailyNewAdmissionsReaResp = require('~/ressources/dailyNewAdmissionsRea.json')
+    const dailyPositivesResp = require('@/ressources/dailyPositives.json')
+    const dailyNewAdmissionsReaResp = require('@/ressources/dailyNewAdmissionsRea.json')
 
     const dates = this.getDatesFromStartToEnd(
       dailyNewAdmissionsReaResp.meta.dateStart,
@@ -79,10 +79,20 @@ export default {
     )
     this.rtsByAge.data.labels = dates
 
-    const datasets = this.getPositivesByAgeDatasets(
-      dailyPositivesResp.data,
-      this.nbDaysAnalyze
-    )
+    const result = []
+    console.log(dailyPositivesResp.data['60-69'].length)
+    for (let i = 0; i < dailyPositivesResp.data['60-69'].length; i++) {
+      result.push(
+        dailyPositivesResp.data['60-69'][i] +
+          dailyPositivesResp.data['70-79'][i] +
+          dailyPositivesResp.data['80-89'][i]
+      )
+    }
+    console.log(result)
+    // const datasets = this.getPositivesByAgeDatasets(
+    //   dailyPositivesResp.data,
+    //   this.nbDaysAnalyze
+    // )
     // this.rtsByAge.data.datasets = this.generateChartsDatasetsByAge(
     //   datasets,
     //   dates
@@ -97,12 +107,20 @@ export default {
       dailyNewAdmissionsReaResp.data,
       this.nbDaysAnalyze
     )
+    const datasetCuml = this.getNewAdmissionsReaDataset(
+      result,
+      this.nbDaysAnalyze
+    )
+    console.log(datasetCuml)
     this.rtsByAge.data.datasets = [
       this.generateChartDataset(dataset, dates, {
-        label: 'Rt Rea délai 6',
+        label: 'Rt Rea with delay 6 days',
         color: 'purple',
       }, 6),
-      ...this.generateChartsDatasetsByAge(datasets, dates),
+      this.generateChartDataset(datasetCuml, dates, {
+        label: 'Cumul',
+        color: 'blue',
+      }),
     ]
 
     this.rtsByAge.options.scales.xAxes[0].time = {

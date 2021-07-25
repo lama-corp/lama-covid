@@ -22,10 +22,10 @@
 import {
   CHARTS_DEFAULT_OPTIONS_AXES_TIME,
   CHARTS_DEFAULT_OPTIONS_AXES_Y,
-} from '~/constants'
-import mixinCharts from '~/mixins/mixin-charts'
-import mixinDatasets from '~/mixins/mixin-datasets'
-import mixinDates from '~/mixins/mixin-dates'
+} from '@/constants'
+import mixinCharts from '@/mixins/mixin-charts'
+import mixinDatasets from '@/mixins/mixin-datasets'
+import mixinDates from '@/mixins/mixin-dates'
 
 export default {
   name: 'PageMethodologie',
@@ -53,8 +53,8 @@ export default {
     }
   },
   mounted() {
-    const hospitalizationsResp = require('~/ressources/hospitalizations.json')
-    const dailyPositivesRest = require('~/ressources/dailyPositives.json').data
+    const hospitalizationsResp = require('@/ressources/hospitalizations.json')
+    const dailyPositivesRest = require('@/ressources/dailyPositives.json').data
 
     const dailyPositivesOldData = []
     for (let i = 0; i < dailyPositivesRest['70-79'].length; i++) {
