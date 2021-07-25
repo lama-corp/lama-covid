@@ -26,9 +26,10 @@
 </template>
 
 <script>
-import { CHART_NB_DAILY_CASES } from '~/constants'
+import { CHART_AGES } from '~/constants'
 
 export default {
+  name: 'PageIndex',
   data() {
     const covidTrackerData = require('~/ressources/covidTrackerData.json')
 
@@ -49,7 +50,7 @@ export default {
       .sort()
 
     // Récupérer les Rt
-    CHART_NB_DAILY_CASES.forEach((dataset) => {
+    CHART_AGES.forEach((dataset) => {
       console.log('---------------------')
       console.log(dataset.name)
       console.log(this.getWeekRt(covidTrackerData.data[dataset.name]))
@@ -59,9 +60,9 @@ export default {
       console.log('---------------------')
     })
 
-    const datasets = CHART_NB_DAILY_CASES.map((dataset) => {
+    const datasets = CHART_AGES.map((dataset) => {
       return {
-        label: this.$t(`charts.${dataset.name}`),
+        label: this.$t(`charts.ageRanges.${dataset.name}`),
         data: covidTrackerData.data[dataset.name].map((val, idx) => ({
           x: dates[idx],
           y: parseInt(val),
