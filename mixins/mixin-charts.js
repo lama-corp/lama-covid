@@ -2,9 +2,32 @@ import {
   CHART_AGES,
   CHARTS_DEFAULT_DATASET_LINE,
   CHARTS_DEFAULT_OPTIONS,
+  CHARTS_DEFAULT_OPTIONS_AXES_TIME,
+  CHARTS_DEFAULT_OPTIONS_AXES_Y,
 } from '~/constants'
 
 export default {
+  data() {
+    return {
+      loaded: 0,
+      chart: {
+        data: {
+          labels: [], // dates,
+          datasets: [],
+        },
+        options: this.getChartOptions({
+          scales: {
+            xAxes: [this.$lodash.merge({}, CHARTS_DEFAULT_OPTIONS_AXES_TIME)],
+            yAxes: [
+              this.$lodash.merge({}, CHARTS_DEFAULT_OPTIONS_AXES_Y, {
+                id: 'moyennes',
+              }),
+            ],
+          },
+        }),
+      },
+    }
+  },
   methods: {
     getChartOptions(newOptions) {
       return this.$lodash.merge(CHARTS_DEFAULT_OPTIONS, newOptions)

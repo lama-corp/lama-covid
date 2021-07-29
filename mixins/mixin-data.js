@@ -36,6 +36,12 @@ export default {
         duplicated.splice(-7, 7).reduce(reducer)
       )
     },
+    getRt(values) {
+      return (
+        values[values.length - 1] /
+        values[values.length - 1 - 7]
+      )
+    },
     getRatio2Last(values) {
       return (
         values[values.length - 1] /

@@ -23,7 +23,7 @@ export default {
 
   // Usage: https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
   publicRuntimeConfig: {
-    baseURL: process.env.BASE_URL
+    baseURL: process.env.BASE_URL,
   },
   privateRuntimeConfig: {},
 
@@ -79,5 +79,12 @@ export default {
     seo: false, // Mandatory as defined in templates for performance
     // https://i18n.nuxtjs.org/seo/#improving-performance
     baseUrl: 'https://www.covid-prochaine-vague.fr',
+  },
+
+  // Tailwind CSS configuration: https://tailwindcss.nuxtjs.org
+  tailwindcss: {
+    config: {
+      plugins: [require('@tailwindcss/forms')],
+    },
   },
 }
