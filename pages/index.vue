@@ -5,16 +5,42 @@
       :description="socialShare.description"
       :image="socialShare.image"
     />
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div>
       <h1 class="text-3xl font-bold leading-tight text-gray-900">
         {{ $t(`pages.index.title`) }}
       </h1>
-    </div>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div class="px-4 py-8 sm:px-0">
-        <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
-          <div class="relative min-h-screen bg-gray-100 p-5">
-            <ChartPredictionHospitalizations />
+        <div class="relative min-h-screen p-5">
+          <tabs
+            v-model="currentChart"
+            :tabs="['hospitalizations', 'cases']"
+            t-path="pages.index.charts"
+          >
+            <ChartPredictionHospitalizations
+              v-if="currentChart === 'hospitalizations'"
+              :restrictions="restrictions"
+            />
+            <ChartPredictionCases
+              v-if="currentChart === 'cases'"
+              :restrictions="restrictions"
+            />
+            <!--
+            <ChartPredictionDeaths
+              v-show="currentChart === 'deaths'"
+            />
+            -->
+          </tabs>
+          <div class="pt-5 flex justify-around">
+            <div v-for="restriction in restrictions" :key="restriction.name">
+              <input-toggle
+                v-model="restriction.isActive"
+                :disabled="restriction.disabled"
+                :label="$t(`constants.restrictions.${restriction.name}.label`)"
+                :sub-label="
+                  $t(`constants.restrictions.${restriction.name}.subLabel`)
+                "
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -27,6 +53,23 @@ export default {
   name: 'PageIndex',
   data() {
     return {
+      restrictions: [
+        {
+          name: 'healthPassport',
+          coefficient: -0.3,
+          dateStart: '2021-07-21',
+          isActive: true,
+          disabled: true,
+        },
+        {
+          name: 'healthPassportExtended',
+          coefficient: -0.3,
+          dateStart: '2021-08-01',
+          isActive: true,
+          disabled: false,
+        },
+      ],
+      currentChart: 'hospitalizations',
       socialShare: {
         title: this.$t('pages.index.socialShare.title'),
         description: this.$t('pages.index.socialShare.description'),

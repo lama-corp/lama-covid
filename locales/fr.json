@@ -1,4 +1,16 @@
 {
+  "constants": {
+    "restrictions": {
+      "healthPassport": {
+        "label": "Passeport sanitaire",
+        "subLabel": "(à partir du 21/07)"
+      },
+      "healthPassportExtended": {
+        "label": "Passeport sanitaire étendu",
+        "subLabel": "(à partir du 01/08)"
+      }
+    }
+  },
   "charts": {
     "ageRanges": {
       "all": "Toutes tranches d'âge",
@@ -25,6 +37,10 @@
       "head": {
         "title": "Covid Prochaine Vague - prédire analyser comprendre",
         "description": "Covid prochaine vague : comprendre le propagation du Covid-19 au sein de la population française"
+      },
+      "charts": {
+        "cases": "Nombre de cas à risque",
+        "hospitalizations": "Nombre d'hospitalisations"
       }
     }
   }

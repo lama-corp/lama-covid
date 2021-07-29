@@ -3,11 +3,9 @@
   <div class="min-h-screen bg-white">
     <LayoutHeader />
 
-    <div class="py-10">
-      <main>
-        <nuxt />
-      </main>
-    </div>
+    <main class="mx-auto w-11/12 py-10">
+      <nuxt />
+    </main>
   </div>
 </template>
 

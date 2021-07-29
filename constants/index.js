@@ -93,4 +93,5 @@ export const CHARTS_DEFAULT_DATASET_LINE = {
 }
 
 export const DEFAULT_NB_DAYS_TO_ANALYZE = 35
+export const DEFAULT_NB_WEEKS_CASES_PREVISION = 2
 export const OLD_AGE_RANGES = ['60-69', '70-79', '80-89', '90+']
