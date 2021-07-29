@@ -6,6 +6,8 @@
     <main class="mx-auto w-11/12 py-10">
       <nuxt />
     </main>
+
+    <LayoutFooter />
   </div>
 </template>
 

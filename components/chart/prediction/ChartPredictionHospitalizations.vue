@@ -188,7 +188,7 @@ export default {
           datesPredictionsCases,
           {
             label: 'Prédictions à 32 jours',
-            color: 'red',
+            color: 'salmon',
           }
         ),
       ]
