@@ -27,6 +27,11 @@
     }
   },
   "components": {},
+  "layouts": {
+    "footer": {
+      "content": "2021 Romain Poussier, tous droits réservés"
+    }
+  },
   "pages": {
     "index": {
       "title": "Prévision de la prochaine vague de la Covid-19",
