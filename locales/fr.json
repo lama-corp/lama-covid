@@ -1,0 +1,52 @@
+{
+  "constants": {
+    "restrictions": {
+      "healthPassport": {
+        "label": "Passeport sanitaire",
+        "subLabel": "(à partir du 21/07)"
+      },
+      "healthPassportExtended": {
+        "label": "Passeport sanitaire étendu",
+        "subLabel": "(à partir du 01/08)"
+      }
+    }
+  },
+  "charts": {
+    "ageRanges": {
+      "all": "Toutes tranches d'âge",
+      "0-9": "0-9",
+      "10-19": "10-19",
+      "20-29": "20-29",
+      "30-39": "30-39",
+      "40-49": "40-49",
+      "50-59": "50-59",
+      "60-69": "60-69",
+      "70-79": "70-79",
+      "80-89": "80-89",
+      "90+": "90 et +"
+    }
+  },
+  "components": {},
+  "layouts": {
+    "footer": {
+      "content": "2021 Romain Poussier, tous droits réservés"
+    }
+  },
+  "pages": {
+    "index": {
+      "title": "Prévisions de la prochaine vague de la Covid-19 en France",
+      "socialShare": {
+        "title": "Covid: Prévisions de la prochaine vague",
+        "description": "Courbes et analyses du nombre de lits de réanimations occupés par la Covid-19 en France au cours des prochaines semaines."
+      },
+      "head": {
+        "title": "Covid-19 - Prévisions occupation réanimation et nombre de cas",
+        "description": "Covid prochaine vague : prévoir et comprendre la propagation de la Covid-19 au sein de la population française au travers du taux de contagion et des mesures sanitaires."
+      },
+      "charts": {
+        "cases": "Nombre de cas à risque",
+        "hospitalizations": "Occupation réanimation"
+      }
+    }
+  }
+}
