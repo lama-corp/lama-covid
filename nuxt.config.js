@@ -54,6 +54,7 @@ export default {
     '@nuxtjs/dayjs',
     'nuxt-i18n',
     '@nuxtjs/svg',
+    '@nuxtjs/robots',
     // Has to be declared at the end
     '@nuxtjs/sitemap',
   ],
@@ -90,6 +91,25 @@ export default {
     baseUrl: 'https://www.covid-prochaine-vague.fr',
   },
 
+  // Robots.txt configuration: https://github.com/nuxt-community/robots-module
+  robots: () => {
+    if (process.env.NODE_ENV !== 'production') {
+      return {
+        UserAgent: '*',
+        Disallow: '/',
+      }
+    } else {
+      return [
+        {
+          UserAgent: '*',
+          Allow: '*',
+          Sitemap: 'https://www.covid-prochaine-vague.fr/sitemap.xml',
+          Host: 'https://www.covid-prochaine-vague.fr',
+        },
+      ]
+    }
+  },
+
   // Sitemap configuration: https://sitemap.nuxtjs.org/fr/
   sitemap() {
     if (process.env.NODE_ENV !== 'production') {
@@ -99,7 +119,6 @@ export default {
         hostname: 'https://www.covid-prochaine-vague.fr',
         gzip: true,
         lastmod: '2021-07-30',
-        exclude: ['/methodologie/**', '/methodologie'],
         routes: [
           {
             url: '/',
