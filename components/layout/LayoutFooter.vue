@@ -5,7 +5,8 @@
       class="
         max-w-7xl
         mx-auto
-        py-12
+        pt-6
+        pb-3
         px-4
         sm:px-6
         md:flex md:items-center md:justify-between
@@ -68,11 +69,11 @@
 </template>
 
 <script>
-import IconGithub from '~/assets/icon-github.svg?inline'
-import IconTelegram from '~/assets/icon-telegram.svg?inline'
-import IconTwitch from '~/assets/icon-twitch.svg?inline'
-import IconTwitter from '~/assets/icon-twitter.svg?inline'
-import IconYoutube from '~/assets/icon-youtube.svg?inline'
+import IconGithub from 'assets/icons/icon-github.svg?inline'
+import IconTelegram from 'assets/icons/icon-telegram.svg?inline'
+import IconTwitch from 'assets/icons/icon-twitch.svg?inline'
+import IconTwitter from 'assets/icons/icon-twitter.svg?inline'
+import IconYoutube from 'assets/icons/icon-youtube.svg?inline'
 
 export default {
   name: 'LayoutFooter',

@@ -103,7 +103,7 @@ export default {
         hidden: false, // Hide line
         pointRadius: 3, // Avoid displaying points
         pointHitRadius: 5,
-        yAxisID: 'moyennes',
+        yAxisID: 'y-axis-0',
       },
       {
         label: 'Rt Positives 20-29',
@@ -118,7 +118,7 @@ export default {
         hidden: false, // Hide line
         pointRadius: 3, // Avoid displaying points
         pointHitRadius: 5,
-        yAxisID: 'moyennes',
+        yAxisID: 'y-axis-0',
       },
       {
         label: 'Rt Positives all',
@@ -133,7 +133,7 @@ export default {
         hidden: false, // Hide line
         pointRadius: 3, // Avoid displaying points
         pointHitRadius: 20,
-        yAxisID: 'moyennes',
+        yAxisID: 'y-axis-0',
       }, // {
       // label: 'Rt hospitalisation',
       // data: RtsHospitalizations.map((val, idx) => ({
@@ -147,7 +147,7 @@ export default {
       // hidden: false, // Hide line
       // pointRadius: 3, // Avoid displaying points
       // // pointHitRadius: 5,
-      // yAxisID: 'moyennes',
+      // yAxisID: 'y-axis-0',
       // },
       {
         label: 'Rt admissions',
@@ -162,7 +162,7 @@ export default {
         hidden: false, // Hide line
         pointRadius: 3, // Avoid displaying points
         // pointHitRadius: 5,
-        yAxisID: 'moyennes',
+        yAxisID: 'y-axis-0',
       },
       {
         label: 'Rt admissions delayed',
@@ -177,7 +177,7 @@ export default {
         hidden: false, // Hide line
         pointRadius: 3, // Avoid displaying points
         // pointHitRadius: 5,
-        yAxisID: 'moyennes',
+        yAxisID: 'y-axis-0',
       },
     ]
 
@@ -196,7 +196,7 @@ export default {
         scales: {
           yAxes: [
             {
-              id: 'moyennes',
+              id: 'y-axis-0',
               stacked: false,
               display: true,
               gridLines: {

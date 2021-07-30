@@ -29,7 +29,9 @@
         </nav>
       </div>
     </div>
-    <slot />
+    <div class="pt-5">
+      <slot />
+    </div>
   </div>
 </template>
 

@@ -51,10 +51,6 @@ export const CHARTS_DEFAULT_OPTIONS = {
     yAxes: [],
     xAxes: [],
   },
-  annotation: {
-    events: ['click'],
-    annotations: [],
-  },
 }
 
 export const CHARTS_DEFAULT_OPTIONS_AXES_TIME = {
@@ -89,7 +85,7 @@ export const CHARTS_DEFAULT_DATASET_LINE = {
   hidden: true, // Hide line
   pointRadius: 1, // Avoid displaying points
   pointHitRadius: 3,
-  yAxisID: 'moyennes',
+  yAxisID: 'y-axis-0',
 }
 
 export const DEFAULT_NB_DAYS_TO_ANALYZE = 35

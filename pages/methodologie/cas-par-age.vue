@@ -61,7 +61,7 @@ export default {
         hidden: false, // Hide line
         pointRadius: 1, // Avoid displaying points
         pointHitRadius: 5,
-        yAxisID: 'moyennes',
+        yAxisID: 'y-axis-0',
       }
     })
 
@@ -86,7 +86,7 @@ export default {
         scales: {
           yAxes: [
             {
-              id: 'moyennes',
+              id: 'y-axis-0',
               stacked: false,
               display: true,
               gridLines: {

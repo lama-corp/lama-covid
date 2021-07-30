@@ -44,7 +44,7 @@ export default {
             xAxes: [this.$lodash.merge({}, CHARTS_DEFAULT_OPTIONS_AXES_TIME)],
             yAxes: [
               this.$lodash.merge({}, CHARTS_DEFAULT_OPTIONS_AXES_Y, {
-                id: 'moyennes',
+                id: 'y-axis-0',
               }),
             ],
           },

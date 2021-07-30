@@ -1,5 +1,6 @@
 <script>
 import { Line } from 'vue-chartjs'
+import chartjsPluginAnnotation from "chartjs-plugin-annotation"
 
 export default {
   name: 'ChartBaseLine',
@@ -12,21 +13,22 @@ export default {
           labels: [],
           datasets: [],
         }
-      }
+      },
     },
     options: {
       type: Object,
       default() {
         return {}
-      }
+      },
     },
   },
   mounted() {
+    this.addPlugin(chartjsPluginAnnotation)
     // Not called on init
     if (this.$data._chart) {
       this.$data._chart.destroy()
     }
-    this.renderChart(this.data, this.options)
+    this.renderChart(this.data, this.$lodash.merge({}, this.options))
   },
 }
 </script>
