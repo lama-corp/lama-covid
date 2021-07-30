@@ -45,7 +45,7 @@
       },
       "charts": {
         "cases": "Nombre de cas à risque",
-        "hospitalizations": "Nombre d'hospitalisations"
+        "hospitalizations": "Occupation réanimation"
       }
     }
   }
