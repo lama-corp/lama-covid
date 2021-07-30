@@ -49,7 +49,14 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/dayjs', 'nuxt-i18n', '@nuxtjs/svg'],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/dayjs',
+    'nuxt-i18n',
+    '@nuxtjs/svg',
+    // Has to be declared at the end
+    '@nuxtjs/sitemap',
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -83,6 +90,28 @@ export default {
     baseUrl: 'https://www.covid-prochaine-vague.fr',
   },
 
+  // Sitemap configuration: https://sitemap.nuxtjs.org/fr/
+  sitemap() {
+    if (process.env.NODE_ENV !== 'production') {
+      return false
+    } else {
+      return {
+        hostname: 'https://www.covid-prochaine-vague.fr',
+        gzip: true,
+        lastmod: '2021-07-30',
+        exclude: ['/methodologie/**', '/methodologie'],
+        routes: [
+          {
+            url: '/',
+            changefreq: 'daily',
+            priority: 1,
+            lastmod: new Date(),
+          },
+        ],
+      }
+    }
+  },
+
   // Stylelint configuration: https://github.com/nuxt-community/stylelint-module
   stylelint: {
     // syntax: 'scss',
@@ -91,12 +120,10 @@ export default {
       'at-rule-no-unknown': [
         true,
         {
-          ignoreAtRules: [
-            'font-named-instance',
-          ],
+          ignoreAtRules: ['font-named-instance'],
         },
       ],
-    }
+    },
   },
 
   // Tailwind CSS configuration: https://tailwindcss.nuxtjs.org
