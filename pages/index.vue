@@ -11,7 +11,8 @@
       </h1>
       <p class="pt-3">
         <strong>Covid Prochaine Vague</strong> est un outil open source de
-        <strong>prévision</strong> de l'épidémie de Covid-19 en France.
+        <strong>prévision de la réanimation</strong> associée à de l'épidémie de
+        la Covid-19 en France.
       </p>
       <p>
         Vous êtes sur la première version de l'outil, n'hésitez pas à suggérer
@@ -31,13 +32,13 @@
       <p>
         L'objectif principal est d'aider à comprendre l'impact des restrictions
         sanitaires sur l'évolution de la pandémie, mais aussi dès la seconde
-        version (en cours de développement), à pouvoir appliquer ses propres
-        restrictions.
-        <strong>Chaque restriction est un choix politique et sanitaire.</strong
+        version (en cours de développement), à pouvoir
+        <strong>appliquer ses propres mesures sanitaires</strong>.
+        <i>Chaque mesure sanitaire est un choix politique et sanitaire.</i
         ><br />
-        Pour deux choix de restrictions différents, il peut y avoir un même
-        impact sur l'épidémie mais des conséquences différentes sur l'économie
-        et le social.
+        Pour deux <strong>restrictions</strong> différentes, il peut y avoir un
+        même impact sur l'épidémie mais des conséquences différentes sur
+        l'économie et le social.
       </p>
       <div id="graphs" class="px-4 sm:px-0">
         <div class="relative px-5">
@@ -126,11 +127,12 @@
           Pour une restriction ayant un impact de -30% sur les contaminations,
           j'aurai en troisième semaine : 1200 * 1.2 * (1 - 0.3) = 1008 cas.
         </p>
-        <h3>Prévisions du nombre d'hospitalisations</h3>
+        <h3>Prévisions du nombre de lits occupés en réanimation</h3>
         <p>
-          La courbe des hospitalisations est scindée en trois sous ensembles :
-          le nombre d'hospitalisations actuel (en gris), la prévision basée sur
-          le nombre de cas actuel (en orange) et la prévision basée sur le
+          La courbe des réanimation est scindée en trois sous ensembles : le
+          nombre de personnes en réanimation actuellement (en gris), la
+          prévision basée sur le nombre de cas actuel (en orange) et la
+          prévision basée sur le
           <a href="#prevision-cases">nombre de cas à venir</a> (en rouge
           saumon).
         </p>
@@ -158,7 +160,7 @@
 
         <h3 id="inertia-hospitalizations">Erreurs et pourcentages d'erreur</h3>
         <p>
-          Les courbes ne sont pas et ne se veulent pas être des prédictions
+          Les courbes ne sont pas et ne se veulent pas être des prévisions
           exactes.<br />
           Sachez simplement que si vous constatez un dépassement important des
           capacités de réanimation,
@@ -200,7 +202,7 @@
             >source calcul</a
           >).<br />
           Ce pourcentage d'erreur est un pourcentage moyen. Parfois les
-          prédictions sont fiables,
+          prévisions sont fiables,
           <strong>
             parfois une erreur allant jusqu'à 20% par semaine est constatée </strong
           >.

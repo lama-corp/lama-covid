@@ -210,14 +210,14 @@ export default {
 
       this.chart.data.datasets = [
         this.generateChartDataset(datasetHospitalizations, dates, {
-          label: 'Hospitalisations',
+          label: 'Nombre de lits occupés en réanimation',
           color: '#789',
         }),
         this.generateChartDataset(
           datasetHospitalizationsPredictions,
           datesPredictions,
           {
-            label: 'Prédictions à 14 jours',
+            label: 'Prévisions à 14 jours *(2)',
             color: 'orange',
           }
         ),
@@ -225,7 +225,7 @@ export default {
           datasetHospitalizationsPredictionsOnCases,
           datesPredictionsCases,
           {
-            label: 'Prédictions à 28 jours',
+            label: 'Prévisions à 28 jours *(2)',
             color: 'salmon',
           }
         ),

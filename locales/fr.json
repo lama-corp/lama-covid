@@ -37,11 +37,11 @@
       "title": "Prévisions de la prochaine vague de la Covid-19 en France",
       "socialShare": {
         "title": "Covid: Prévisions de la prochaine vague",
-        "description": "Courbes et analyses du nombre d'hospitalisations liées au Covid-19 en France au cours des prochaines semaines."
+        "description": "Courbes et analyses du nombre de lits de réanimations occupés par la Covid-19 en France au cours des prochaines semaines."
       },
       "head": {
-        "title": "Covid Prochaine Vague - Prévisions et analyses de l'épidémie",
-        "description": "Covid prochaine vague : prévoir et comprendre la propagation du Covid-19 au sein de la population française au travers du taux de contagion et des restrictions sanitaires."
+        "title": "Covid-19 - Prévisions occupation réanimation et nombre de cas",
+        "description": "Covid prochaine vague : prévoir et comprendre la propagation de la Covid-19 au sein de la population française au travers du taux de contagion et des mesures sanitaires."
       },
       "charts": {
         "cases": "Nombre de cas à risque",
