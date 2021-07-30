@@ -11,6 +11,7 @@ export const actions = {
       commit(
         'setDailyPositives',
         await this.$axios.$get('/dailyPositives.json')
+        // await this.$axios.$get('/dailyPositives_20210720.json')
       )
     }
   },
@@ -19,6 +20,7 @@ export const actions = {
       commit(
         'setHospitalizations',
         await this.$axios.$get('/hospitalizations.json')
+        // await this.$axios.$get('/hospitalizations_20210723.json')
       )
     }
   },

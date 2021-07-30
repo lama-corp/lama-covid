@@ -34,14 +34,14 @@
   },
   "pages": {
     "index": {
-      "title": "Prévision de la prochaine vague de la Covid-19",
+      "title": "Prévisions de la prochaine vague de la Covid-19 en France",
       "socialShare": {
-        "title": "Covid: Prévisions prochaine vague",
-        "description": "Courbes et analyses du nombre de cas de Covid-19 en France au cours des prochaines semaines."
+        "title": "Covid: Prévisions de la prochaine vague",
+        "description": "Courbes et analyses du nombre d'hospitalisations liées au Covid-19 en France au cours des prochaines semaines."
       },
       "head": {
-        "title": "Covid Prochaine Vague - prédire analyser comprendre",
-        "description": "Covid prochaine vague : comprendre le propagation du Covid-19 au sein de la population française"
+        "title": "Covid Prochaine Vague - Prévisions et analyses de l'épidémie",
+        "description": "Covid prochaine vague : prévoir et comprendre la propagation du Covid-19 au sein de la population française au travers du taux de contagion et des restrictions sanitaires."
       },
       "charts": {
         "cases": "Nombre de cas à risque",

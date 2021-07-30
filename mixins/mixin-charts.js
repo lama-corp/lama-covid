@@ -20,10 +20,11 @@ export default {
             xAxes: [this.$lodash.merge({}, CHARTS_DEFAULT_OPTIONS_AXES_TIME)],
             yAxes: [
               this.$lodash.merge({}, CHARTS_DEFAULT_OPTIONS_AXES_Y, {
-                id: 'moyennes',
+                id: 'y-axis-0',
               }),
             ],
           },
+          annotation: {},
         }),
       },
     }
@@ -42,7 +43,7 @@ export default {
           })),
           borderColor: age.color, // Line color
           pointBorderColor: age.color, // Point color
-          yAxisID: 'moyennes',
+          yAxisID: 'y-axis-0',
           hidden: age.name !== 'all',
         })
       })
@@ -56,7 +57,7 @@ export default {
         })),
         borderColor: info.color, // Line color
         pointBorderColor: info.color, // Point color
-        yAxisID: 'moyennes',
+        yAxisID: 'y-axis-0',
         hidden: false,
       })
     },

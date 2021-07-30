@@ -50,10 +50,10 @@ export default {
         [],
         this.generateDatasetPositivesOld().reverse()
       )
-      let i = 0
+      let i = DEFAULT_NB_WEEKS_CASES_PREVISION - 1
       // We have to loop to do predictions on previous weeks
       // Current version only take Rt from a week to another, it would be nice to predict inflexions points... But a bit complex
-      while (i < DEFAULT_NB_WEEKS_CASES_PREVISION) {
+      while (i >= 0) {
         const duplicated = this.$lodash.merge([], newDataset)
         const Rt = this.getWeekRt(duplicated.reverse())
 
@@ -62,26 +62,28 @@ export default {
           let RtWithRestrictions = Rt
           this.restrictions.forEach((restriction) => {
             const restrictionDate = this.$dayjs(restriction.dateStart)
-              .add(7, 'day')
+              .add(4, 'day')
               .format('YYYY-MM-DD')
             // We only have to apply Rt for one week as next week Rt is calculated from previous one
             const endApplyRestriction = this.$dayjs(restriction.dateStart)
-              .add(14, 'day')
+              .add(11, 'day')
               .format('YYYY-MM-DD')
             if (
               restriction.isActive &&
-              datesPrevisions[datesPrevisions.length - 1 - i * 7 - j] >
+              datesPrevisions[datesPrevisions.length - 1 - i * 7 - j] >=
                 restrictionDate &&
               datesPrevisions[datesPrevisions.length - 1 - i * 7 - j] <
                 endApplyRestriction
             ) {
-              RtWithRestrictions = Rt + Rt * restriction.coefficient
+              // console.log('RtWithRestrictions')
+              RtWithRestrictions =
+                RtWithRestrictions * (1 + restriction.coefficient)
             }
           })
-
+          // console.log(RtWithRestrictions)
           newDataset.unshift(parseInt(newDataset[6] * RtWithRestrictions))
         }
-        i++
+        i--
       }
 
       // I would like to kill myself right now...

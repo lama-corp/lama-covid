@@ -28,7 +28,7 @@ export default {
   privateRuntimeConfig: {},
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~assets/scss/global.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: ['~/plugins/vue-lodash'],
@@ -79,6 +79,22 @@ export default {
     seo: false, // Mandatory as defined in templates for performance
     // https://i18n.nuxtjs.org/seo/#improving-performance
     baseUrl: 'https://www.covid-prochaine-vague.fr',
+  },
+
+  // Stylelint configuration: https://github.com/nuxt-community/stylelint-module
+  stylelint: {
+    // syntax: 'scss',
+    // extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
+    rules: {
+      'at-rule-no-unknown': [
+        true,
+        {
+          ignoreAtRules: [
+            'font-named-instance',
+          ],
+        },
+      ],
+    }
   },
 
   // Tailwind CSS configuration: https://tailwindcss.nuxtjs.org
