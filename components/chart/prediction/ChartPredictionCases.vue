@@ -1,10 +1,6 @@
 <template>
   <div>
-    <ChartBaseLine
-      v-if="loaded"
-      :data="chart.data"
-      :options="chart.options"
-    />
+    <ChartBaseLine v-if="loaded" :data="chart.data" :options="chart.options" />
   </div>
 </template>
 
@@ -42,6 +38,7 @@ export default {
     },
   },
   async mounted() {
+    this.chart.options.annotation = {}
     await this.$fetch()
     this.generateChartData()
   },
@@ -73,7 +70,7 @@ export default {
           datasetPositivesOldPrediction,
           datesPrevisions,
           {
-            label: 'Prédiction 2 semaines',
+            label: 'Prévisions à 2 semaines',
             color: 'orange',
           }
         ),
