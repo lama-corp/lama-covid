@@ -66,7 +66,9 @@ export default {
   },
 
   // Axios configuration: https://axios.nuxtjs.org
-  axios: {},
+  axios: {
+    baseURL: process.env.BASE_URL,
+  },
 
   // DayJS configuration: https://github.com/nuxt-community/dayjs-module
   dayjs: {
